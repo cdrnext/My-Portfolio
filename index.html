@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
     <style>
         /* ==================== VARIABLES & RESET ==================== */
@@ -25,7 +25,8 @@
             --white-color: #ffffff;
             
             /* Typography */
-            --font-head: 'Syne', sans-serif;
+            /* CHANGED TO MONTSERRAT FOR A PROFESSIONAL LOOK */
+            --font-head: 'Montserrat', sans-serif; 
             --font-body: 'Poppins', sans-serif;
             
             /* Spacing */
@@ -104,7 +105,6 @@
             height: 45px; 
             width: auto;
             border-radius: 8px;
-            /* Removed all animation properties */
         }
 
         .nav__list { display: flex; gap: 2rem; }
@@ -170,10 +170,12 @@
         }
         .hero-content { max-width: 700px; z-index: 2; position: relative; }
         .hero-subtitle { color: var(--accent-light); font-weight: bold; letter-spacing: 3px; margin-bottom: 10px; display: block; font-size: 0.9rem; }
-        .hero h1 { font-family: var(--font-head); font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; color: #fff; }
+        
+        /* Updated Main Title Font */
+        .hero h1 { font-family: var(--font-head); font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; color: #fff; text-transform: uppercase; }
         .hero h1 span { background: linear-gradient(to right, var(--accent-light), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* TYPING ANIMATION */
+        /* TYPING ANIMATION (DEFAULT / DESKTOP) */
         .wrapper { display: flex; align-items: baseline; margin-bottom: 20px; }
         .wrapper .first-text { font-size: 2rem; color: #fff; margin-right: 15px; }
         .wrapper .sec-texts { height: 50px; line-height: 50px; overflow: hidden; }
@@ -208,27 +210,22 @@
         }
         .btn-grad:hover { transform: translateY(-3px); box-shadow: 0 10px 20px -10px rgba(0, 229, 255, 0.5); }
 
-        /* --- UPDATED: HEXAGON HERO IMAGE --- */
+        /* --- HEXAGON HERO IMAGE --- */
         .hex-wrapper { 
             position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
             width: 450px; height: 450px; z-index: 1;
             display: flex; justify-content: center; align-items: center;
         }
         
-        /* The Hexagon Shape & Glow */
         .hex-img {
             width: 100%; height: 100%;
             object-fit: cover;
-            /* Creating the Hexagon */
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            /* Floating Animation */
             animation: floatHex 6s ease-in-out infinite;
-            /* Filter Drop Shadow acts as the glow for clipped shapes */
             filter: drop-shadow(0 0 20px var(--accent-light));
             transition: 0.5s;
         }
 
-        /* Hover Effect: Scale Up */
         .hex-wrapper:hover .hex-img {
             transform: scale(1.05);
             filter: drop-shadow(0 0 40px var(--accent));
@@ -246,15 +243,65 @@
             .hex-wrapper { position: relative; width: 300px; height: 300px; right: auto; top: auto; transform: none; margin: 0 auto; }
             .wrapper { justify-content: center; }
         }
+
+        /* ==================== MOBILE FIXES (UPDATED) ==================== */
         @media (max-width: 576px) {
-            .hero h1 { font-size: 2.5rem; }
-            .wrapper .first-text, .sec-texts li { font-size: 1.5rem; }
-            .sec-texts { height: 40px; line-height: 40px; }
+            /* 1. Hero Margins & Title */
+            .hero {
+                padding-top: 120px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .hero h1 { 
+                font-size: 2.3rem; /* Increased slightly (was 2rem) */
+            }
+
+            /* 2. FIX FOR "I'm a" OVERLAP */
+            .wrapper {
+                display: flex;
+                flex-wrap: nowrap; 
+                justify-content: center;
+                align-items: center; 
+                gap: 10px; 
+                width: 100%;
+            }
+            
+            .wrapper .first-text { 
+                margin: 0; 
+                font-size: 1.5rem; 
+                white-space: nowrap;
+            }
+            
+            .wrapper .sec-texts { 
+                margin: 0;
+                padding: 0; 
+                height: 40px; 
+                line-height: 40px; 
+                width: auto; 
+                text-align: left; 
+            }
+
+            .sec-texts li { 
+                font-size: 1.5rem; 
+                display: flex;
+                align-items: center;
+            }
+
             @keyframes slide { 100% { top: -160px; } }
+            
+            /* 3. Headlines - Increased size slightly but kept strictly One Line */
+            .section-header h2 {
+                font-size: 1.8rem !important; /* Increased from 1.5rem */
+                white-space: nowrap; 
+            }
+            .section-header {
+                text-align: center !important;
+            }
         }
 
         .section-header { margin-bottom: 60px; text-align: left; }
-        .section-header h2 { font-family: var(--font-head); font-size: 3rem; }
+        /* Professional Font for Headers */
+        .section-header h2 { font-family: var(--font-head); font-size: 3rem; text-transform: capitalize; }
         .section-header span { color: var(--accent-light); }
 
         /* --- ABOUT SECTION --- */
@@ -286,7 +333,7 @@
         .timeline { display: flex; justify-content: center; align-items: center; width: 100%; }
         .timeline-row { display: flex; column-gap: 64px; flex-wrap: wrap; width: 100%; justify-content: center; }
         .timeline-column { flex: 1 1 320px; max-width: 600px; }
-        .timeline-column .title { position: relative; display: inline-block; font-size: 28px; margin: 0 0 30px 0; color: var(--white-color); }
+        .timeline-column .title { position: relative; display: inline-block; font-size: 28px; margin: 0 0 30px 0; color: var(--white-color); font-family: var(--font-head); }
         
         .timeline-column .timeline-box { position: relative; border-left: 2px solid var(--accent-light); }
         
@@ -440,7 +487,7 @@
             </div>
             <div class="about__info">
                 <p class="about__description">
-                    I am a multidisciplinary designer obsessed with motion and interaction. I believe a portfolio shouldn't just be a gallery; it should be an experience. From Sri Lanka to the global digital stage, I create visuals that move people—literally and emotionally.
+                    I am a multidisciplinary designer obsessed with motion and interaction. I believe a portfolio shouldn't just be a gallery; it should be an experience. From Sri Lanka to the global digital stage, I create visuals that move peopleï¿½literally and emotionally.
                 </p>
                 <ul class="about__list">
                     <li class="about__item"><i class="ri-checkbox-circle-line"></i> Web Development</li>
@@ -544,7 +591,7 @@
     </section>
 
     <section id="portfolio" class="portfolio">
-        <div class="section-header" data-aos="fade-up">
+        <div class="section-header" style="text-align: center;" data-aos="fade-up">
             <h2>Recent <span>Work</span></h2>
         </div>
         <div class="gallery">
@@ -588,7 +635,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         /* ==================== ANIMATION INIT ==================== */
-        AOS.init({ duration: 1000, once: true, offset: 100 });
+        /* Forces animations to work on mobile */
+        AOS.init({ 
+            duration: 1000, 
+            once: true, 
+            offset: 100,
+            disable: false 
+        });
 
         /* ==================== MOUSE FOLLOWER ==================== */
         const dot = document.querySelector('.cursor-dot');
@@ -661,4 +714,4 @@
         window.addEventListener('resize', scrollActive);
     </script>
 </body>
-</html>
+                </html>
