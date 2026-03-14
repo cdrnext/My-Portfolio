@@ -25,7 +25,6 @@
             --white-color: #ffffff;
             
             /* Typography */
-            /* CHANGED TO MONTSERRAT FOR A PROFESSIONAL LOOK */
             --font-head: 'Montserrat', sans-serif; 
             --font-body: 'Poppins', sans-serif;
             
@@ -98,7 +97,6 @@
         }
         .nav:hover::before, footer:hover::before { left: 100%; }
 
-        /* --- STATIC LOGO (No Animation) --- */
         .nav__logo, .nav__list, .footer-content { position: relative; z-index: 2; }
         
         .nav__logo img {
@@ -113,7 +111,6 @@
             position: relative; display: flex; flex-direction: column; overflow: hidden; height: 1.5rem;
         }
         
-        /* Active State Style for Desktop */
         .nav__link.active-link span {
             color: var(--accent-light);
             text-shadow: 0 0 10px var(--accent);
@@ -131,11 +128,12 @@
             .nav__list { display: none; }
             .nav { 
                 justify-content: center;
-                background: rgba(20, 20, 20, 0.8);
-                backdrop-filter: blur(25px);
-                -webkit-backdrop-filter: blur(25px);
+                /* Applied desktop glass effect */
+                background: rgba(255, 255, 255, 0.01);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
                 pointer-events: auto;
             }
             .nav::before { display: none; } 
@@ -144,10 +142,15 @@
             .magic-nav {
                 display: flex; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
                 width: 90%; max-width: 400px; height: 70px;
-                background: rgba(20, 20, 20, 0.65); backdrop-filter: blur(35px); -webkit-backdrop-filter: blur(35px);
-                border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 35px; 
+                /* Applied desktop/footer glass effect */
+                background: rgba(255, 255, 255, 0.02); 
+                backdrop-filter: blur(20px); 
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.1); 
+                border-radius: 35px; 
                 justify-content: center; align-items: center; z-index: 1000;
-                box-shadow: 0 15px 40px rgba(0,0,0,0.4); padding: 0 10px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+                padding: 0 10px;
             }
             .magic-nav ul { display: flex; width: 100%; justify-content: space-around; align-items: center; position: relative; }
             .magic-nav ul li { position: relative; list-style: none; width: 60px; height: 60px; z-index: 2; display: flex; justify-content: center; align-items: center; }
@@ -171,11 +174,10 @@
         .hero-content { max-width: 700px; z-index: 2; position: relative; }
         .hero-subtitle { color: var(--accent-light); font-weight: bold; letter-spacing: 3px; margin-bottom: 10px; display: block; font-size: 0.9rem; }
         
-        /* Updated Main Title Font */
         .hero h1 { font-family: var(--font-head); font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; color: #fff; text-transform: uppercase; }
         .hero h1 span { background: linear-gradient(to right, var(--accent-light), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* TYPING ANIMATION (DEFAULT / DESKTOP) */
+        /* TYPING ANIMATION */
         .wrapper { display: flex; align-items: baseline; margin-bottom: 20px; }
         .wrapper .first-text { font-size: 2rem; color: #fff; margin-right: 15px; }
         .wrapper .sec-texts { height: 50px; line-height: 50px; overflow: hidden; }
@@ -244,63 +246,19 @@
             .wrapper { justify-content: center; }
         }
 
-        /* ==================== MOBILE FIXES (UPDATED) ==================== */
         @media (max-width: 576px) {
-            /* 1. Hero Margins & Title */
-            .hero {
-                padding-top: 120px;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .hero h1 { 
-                font-size: 2.3rem; /* Increased slightly (was 2rem) */
-            }
-
-            /* 2. FIX FOR "I'm a" OVERLAP */
-            .wrapper {
-                display: flex;
-                flex-wrap: nowrap; 
-                justify-content: center;
-                align-items: center; 
-                gap: 10px; 
-                width: 100%;
-            }
-            
-            .wrapper .first-text { 
-                margin: 0; 
-                font-size: 1.5rem; 
-                white-space: nowrap;
-            }
-            
-            .wrapper .sec-texts { 
-                margin: 0;
-                padding: 0; 
-                height: 40px; 
-                line-height: 40px; 
-                width: auto; 
-                text-align: left; 
-            }
-
-            .sec-texts li { 
-                font-size: 1.5rem; 
-                display: flex;
-                align-items: center;
-            }
-
+            .hero { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
+            .hero h1 { font-size: 2.3rem; }
+            .wrapper { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 10px; width: 100%; }
+            .wrapper .first-text { margin: 0; font-size: 1.5rem; white-space: nowrap; }
+            .wrapper .sec-texts { margin: 0; padding: 0; height: 40px; line-height: 40px; width: auto; text-align: left; }
+            .sec-texts li { font-size: 1.5rem; display: flex; align-items: center; }
             @keyframes slide { 100% { top: -160px; } }
-            
-            /* 3. Headlines - Increased size slightly but kept strictly One Line */
-            .section-header h2 {
-                font-size: 1.8rem !important; /* Increased from 1.5rem */
-                white-space: nowrap; 
-            }
-            .section-header {
-                text-align: center !important;
-            }
+            .section-header h2 { font-size: 1.8rem !important; white-space: nowrap; }
+            .section-header { text-align: center !important; }
         }
 
         .section-header { margin-bottom: 60px; text-align: left; }
-        /* Professional Font for Headers */
         .section-header h2 { font-family: var(--font-head); font-size: 3rem; text-transform: capitalize; }
         .section-header span { color: var(--accent-light); }
 
@@ -329,13 +287,13 @@
         }
         .button__ghost:hover { background-color: var(--accent); color: var(--white-color); transform: translateY(-5px); }
 
-        /* --- RESUME TIMELINE (Glass Effect) --- */
-        .timeline { display: flex; justify-content: center; align-items: center; width: 100%; }
-        .timeline-row { display: flex; column-gap: 64px; flex-wrap: wrap; width: 100%; justify-content: center; }
+        /* --- RESUME TIMELINE --- */
+        .timeline { display: flex; justify-content: center; align-items: center; width: 100%; flex-direction: column; }
+        .timeline-row { display: flex; column-gap: 64px; flex-wrap: wrap; width: 100%; justify-content: center; margin-bottom: 40px; }
         .timeline-column { flex: 1 1 320px; max-width: 600px; }
         .timeline-column .title { position: relative; display: inline-block; font-size: 28px; margin: 0 0 30px 0; color: var(--white-color); font-family: var(--font-head); }
         
-        .timeline-column .timeline-box { position: relative; border-left: 2px solid var(--accent-light); }
+        .timeline-box { position: relative; border-left: 2px solid var(--accent-light); }
         
         .timeline-box .timeline-content { position: relative; padding-left: 27px; margin-bottom: 30px; }
         .timeline-box .timeline-content::before { 
@@ -346,7 +304,7 @@
 
         .timeline-content .content {
             padding: 24px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;
-            background: rgba(255, 255, 255, 0.03); /* Glass Effect */
+            background: rgba(255, 255, 255, 0.03); 
             backdrop-filter: blur(10px);
             transition: 0.4s ease;
         }
@@ -363,12 +321,35 @@
         .timeline-content .content h3 { font-size: 20px; margin-bottom: 5px; color: var(--white-color); }
         .timeline-content .content p { font-size: 15px; color: var(--text-muted); }
         
+        /* HIDDEN TITLE FOR DESKTOP ALIGNMENT */
+        .hidden-title { visibility: hidden; }
+
         @media (max-width: 768px) { 
-            .timeline-row { column-gap: 0; row-gap: 40px; } 
+            .timeline-row { column-gap: 0; row-gap: 40px; margin-bottom: 0; } 
             .timeline-content .content { padding: 20px; } 
+
+            /* --- MAGIC EXPERIENCE LINE MERGE FOR MOBILE --- */
+            .hidden-title { display: none !important; margin: 0 !important; } 
+            .experience-row { row-gap: 0 !important; } 
+            
+            /* 1. Stretch the line of the first section down */
+            .experience-row .timeline-column:first-child .timeline-box {
+                padding-bottom: 40px; 
+            }
+            .experience-row .timeline-column:first-child .timeline-box .timeline-content:last-child {
+                margin-bottom: 0;
+            }
+
+            /* 2. Pull the second section up to overlap the lines seamlessly */
+            .experience-row .timeline-column:last-child {
+                margin-top: -20px;
+            }
+            .experience-row .timeline-column:last-child .timeline-box {
+                padding-top: 20px;
+            }
         }
 
-        /* --- SERVICES (Glass Effect) --- */
+        /* --- SERVICES --- */
         .services { padding: var(--padding-section); }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .service-card { 
@@ -433,7 +414,7 @@
 
     <nav class="nav" id="nav">
         <a href="#" class="nav__logo">
-            <img src="logo.png" alt="CDR Logo">
+            <img src="LOGO.png" alt="CDR Logo">
         </a>
         <div class="nav__menu">
             <ul class="nav__list">
@@ -476,7 +457,7 @@
             </div>
         </div>
         <div class="hex-wrapper" data-aos="zoom-in">
-            <img src="img.png" class="hex-img" alt="My Profile">
+            <img src="MY4TO.png" class="hex-img" alt="My Profile">
         </div>
     </section>
 
@@ -487,7 +468,7 @@
             </div>
             <div class="about__info">
                 <p class="about__description">
-                    I am a multidisciplinary designer obsessed with motion and interaction. I believe a portfolio shouldn't just be a gallery; it should be an experience. From Sri Lanka to the global digital stage, I create visuals that move people�literally and emotionally.
+                    I am a multidisciplinary designer obsessed with motion and interaction. I believe a portfolio shouldn't just be a gallery; it should be an experience. From Sri Lanka to the global digital stage, I create visuals that move people—literally and emotionally.
                 </p>
                 <ul class="about__list">
                     <li class="about__item"><i class="ri-checkbox-circle-line"></i> Web Development</li>
@@ -510,55 +491,118 @@
                     <div class="timeline-box">
                         <div class="timeline-content" data-aos="fade-up" data-aos-delay="100">
                             <div class="content">
-                                <div class="year"><i class='bx bxs-calendar'></i>2021 - 2022</div>
-                                <h3>High School Degree</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate natus consectetur suscipit aspernatur quos obcaecati.</p>
+                                <div class="year"><i class='bx bxs-calendar'></i>Ends 2025</div>
+                                <h3>B.Tech in Multimedia & Web Technology</h3>
+                                <p>University of Vocational Technology, Sri Lanka. Second Class Lower Division (GPA: 3.09).</p>
                             </div>
                         </div>
 
                         <div class="timeline-content" data-aos="fade-up" data-aos-delay="200">
                             <div class="content">
-                                <div class="year"><i class='bx bxs-calendar'></i>2022 - 2023</div>
-                                <h3>Bachelor Degree</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate natus consectetur suscipit aspernatur quos obcaecati.</p>
+                                <div class="year"><i class='bx bxs-calendar'></i>2020</div>
+                                <h3>National Diploma in ICT</h3>
+                                <p>Vocational Training Authority of Sri Lanka. Awarded NVQ Level 5.</p>
                             </div>
                         </div>
 
                         <div class="timeline-content" data-aos="fade-up" data-aos-delay="300">
                             <div class="content">
-                                <div class="year"><i class='bx bxs-calendar'></i>2023 - 2024</div>
-                                <h3>Master Degree</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate natus consectetur suscipit aspernatur quos obcaecati.</p>
+                                <div class="year"><i class='bx bxs-calendar'></i>2020</div>
+                                <h3>Computer Applications Assistant</h3>
+                                <p>National Apprentice and Industrial Training Authority. Awarded NVQ Level 3.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-column">
-                    <h2 class="title" data-aos="fade-left">Experience</h2>
+                    <h2 class="title" data-aos="fade-left">Certifications</h2>
                 
                     <div class="timeline-box">
                         <div class="timeline-content" data-aos="fade-up" data-aos-delay="400">
                             <div class="content">
-                                <div class="year"><i class='bx bxs-calendar'></i>2021 - 2022</div>
-                                <h3>Frontend Developer</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate natus consectetur suscipit aspernatur quos obcaecati.</p>
+                                <div class="year"><i class='bx bxs-calendar'></i>2021</div>
+                                <h3>Computer Science & Video Production</h3>
+                                <p>Completed the Certificate Course in Computer Science and Online Video Producing Course via the Inter University Scholarship Program.</p>
                             </div>
                         </div>
                 
                         <div class="timeline-content" data-aos="fade-up" data-aos-delay="500">
                             <div class="content">
-                                <div class="year"><i class='bx bxs-calendar'></i>2022 - 2023</div>
-                                <h3>Backend Developer</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate natus consectetur suscipit aspernatur quos obcaecati.</p>
+                                <div class="year"><i class='bx bxs-calendar'></i>2021</div>
+                                <h3>Adv. Human Resource Management</h3>
+                                <p>Obtained Foundation Level and Advanced Certificates in Human Resource Management from Infinity Business School.</p>
                             </div>
                         </div>
                 
                         <div class="timeline-content" data-aos="fade-up" data-aos-delay="600">
                             <div class="content">
-                                <div class="year"><i class='bx bxs-calendar'></i>2023 - 2024</div>
-                                <h3>Full Stack Developer</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptate natus consectetur suscipit aspernatur quos obcaecati.</p>
+                                <div class="year"><i class='bx bxs-calendar'></i>2021</div>
+                                <h3>Business Management & Marketing</h3>
+                                <p>Awarded Foundation Level certificate in Business Management & Marketing by Infinity Business School.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-row experience-row">
+                <div class="timeline-column">
+                    <h2 class="title" data-aos="fade-right">Experience</h2>
+
+                    <div class="timeline-box">
+                        <div class="timeline-content" data-aos="fade-up" data-aos-delay="100">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>Apr 2024 - Present</div>
+                                <h3>Senior Executive - Creative Design</h3>
+                                <p>Bally's Limited.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-content" data-aos="fade-up" data-aos-delay="300">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>2019 - Present</div>
+                                <h3>Freelance Creative Professional</h3>
+                                <p>Specializing in graphic design, video editing, animation, logo branding, and web development.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-content" data-aos="fade-up" data-aos-delay="200">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>Jan 2024 - Apr 2024</div>
+                                <h3>Gaming</h3>
+                                <p>Bally's Limited.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="timeline-column">
+                    <h2 class="title hidden-title">Experience</h2>
+                
+                    <div class="timeline-box">
+                        <div class="timeline-content" data-aos="fade-up" data-aos-delay="400">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>Dec 2021 - Jul 2022</div>
+                                <h3>IT Technician</h3>
+                                <p>RUSL Rajarata University Cooperative Society Ltd.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-content" data-aos="fade-up" data-aos-delay="500">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>Jul 2020 - Jan 2021</div>
+                                <h3>Technician</h3>
+                                <p>John Keells Logistic (Pvt) Ltd.</p>
+                            </div>
+                        </div>
+                
+                        <div class="timeline-content" data-aos="fade-up" data-aos-delay="600">
+                            <div class="content">
+                                <div class="year"><i class='bx bxs-calendar'></i>Jan 2019 - Jul 2019</div>
+                                <h3>IT Technician (Trainee)</h3>
+                                <p>IT Department, Rajarata University of Sri Lanka (RUSL). Completed practical training in hardware, networking, and graphic/web design.</p>
                             </div>
                         </div>
                     </div>
@@ -635,7 +679,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         /* ==================== ANIMATION INIT ==================== */
-        /* Forces animations to work on mobile */
         AOS.init({ 
             duration: 1000, 
             once: true, 
@@ -663,7 +706,6 @@
         const indicator = document.querySelector('.indicator');
         const sections = document.querySelectorAll('section, footer'); 
         
-        // Added Selection for Desktop Links
         const desktopLinks = document.querySelectorAll('.nav__link');
 
         function moveIndicator(element) {
@@ -674,7 +716,6 @@
         }
 
         function activeLink() {
-            // Mobile Logic
             list.forEach((item) => item.classList.remove('active'));
             this.classList.add('active');
             moveIndicator(this);
@@ -689,7 +730,6 @@
                 const sectionId = current.getAttribute('id');
 
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    // 1. Mobile Logic
                     const targetLink = document.querySelector(`.list[data-target="#${sectionId}"]`);
                     if (targetLink) {
                         list.forEach(item => item.classList.remove('active'));
@@ -697,7 +737,6 @@
                         moveIndicator(targetLink);
                     }
 
-                    // 2. Desktop Logic
                     desktopLinks.forEach(link => {
                         link.classList.remove('active-link');
                         if(link.getAttribute('href') === '#' + sectionId) {
@@ -714,4 +753,4 @@
         window.addEventListener('resize', scrollActive);
     </script>
 </body>
-                </html>
+</html>
