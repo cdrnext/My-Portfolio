@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Manoj Bhagya Wedding</title>
+</head>
+<body>
+
+  <h1>Welcome to Manoj & Bhagya's Wedding</h1>
+
+  <script>
+    // Updates the browser URL to /Manoj-Bhagya-Wedding without reloading
+    const newPath = "/Manoj-Bhagya-Wedding";
+    
+    if (window.location.pathname !== newPath) {
+      window.history.pushState({}, "", newPath);
+    }
+  </script>
+
+</body>
+</html>
