@@ -1,0 +1,1146 @@
+/* ==========================================================================
+   Sri Lankan Traditional Kandyan Wedding Invitation Styling System
+   Palette: Dusty Rose (#C88A75), Rosebud (#9E4F63), Medium Lavender (#8B729E), & Gold (#D4AF37)
+   Theme: Authentic Sri Lankan Traditional Magul Poruwa Experience
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Requested Traditional Wedding Day Color Palette */
+  --dusty-rose: #C88A75;
+  --dusty-rose-light: #F3E5E0;
+  --dusty-rose-soft: #FDF7F5;
+  --dusty-rose-dark: #A4634E;
+  
+  --rosebud-main: #9E4F63;
+  --rosebud-light: #C4798D;
+  --rosebud-dark: #5C2331;
+  --rosebud-deep: #3D121E;
+  
+  --medium-lavender: #8B729E;
+  --lavender-light: #B8A5C7;
+  --lavender-soft: #F4EFF8;
+  --lavender-dark: #573E6A;
+  
+  --primary-gold: #D4AF37;
+  --gold-light: #F7E49A;
+  --gold-dark: #A38020;
+  --gold-metallic: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.6);
+
+  /* Royal Gold, Pink & White Gradient Tokens */
+  --royal-pink-main: #F4C2C2;
+  --royal-pink-soft: #FDE8E9;
+  --royal-pink-blush: #F9D5D7;
+  --royal-gold-bright: #D4AF37;
+  --royal-gold-soft: #F7E49A;
+  --royal-white-pure: #FFFFFF;
+  --royal-gradient-blend: linear-gradient(135deg, #FFFDF9 0%, #FDEAEF 30%, #F9E5BA 65%, #F7DADE 85%, #FFFFFF 100%);
+  
+  /* Neutral Warm Paper Tones */
+  --white-pure: #FFFFFF;
+  --cream-paper: #FFFDF9;
+  --cream-card: #FAF4EE;
+  
+  /* Typography Colors */
+  --text-main: #3B242A;
+  --text-muted: #73555D;
+  --text-gold: #B38728;
+  --text-rose: #9E4F63;
+  
+  /* Shadows & Layout Tokens */
+  --shadow-luxury: 0 18px 40px rgba(158, 79, 99, 0.15);
+  --shadow-gold-card: 0 12px 30px rgba(212, 175, 55, 0.3);
+  --shadow-envelope: 0 25px 60px rgba(0, 0, 0, 0.65);
+  
+  --font-script: 'Great Vibes', cursive;
+  --font-serif: 'Playfair Display', serif;
+  --font-heading: 'Cinzel', serif;
+  --font-subheading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  --radius-card: 24px;
+  --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FFF5F7;
+  background-image: url('assets/bg_floral.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Canvas Particles */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Viewport Container (Mobile & Desktop Centered) */
+.app-viewport {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.75);
+  background: linear-gradient(180deg, #FFFDFB 0%, #FDF7F5 25%, #F7EFEA 60%, #FFFDFB 100%);
+  overflow-x: hidden;
+}
+
+/* Floating Controls (Music Toggle) */
+.floating-controls {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 999;
+}
+
+.control-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rosebud-main) 0%, var(--lavender-dark) 100%);
+  color: var(--gold-light);
+  border: 1.5px solid var(--primary-gold);
+  box-shadow: 0 6px 18px rgba(158, 79, 99, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.control-btn.playing {
+  animation: rotateMusic 4s linear infinite;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+}
+
+@keyframes rotateMusic {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   1. TRADITIONAL KANDYAN ROYAL ENVELOPE UNBOXING EXPERIENCE
+   ========================================================================== */
+
+.envelope-wrapper {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background: 
+    radial-gradient(circle at 50% 25%, rgba(200, 138, 117, 0.45) 0%, transparent 70%),
+    radial-gradient(circle at 50% 75%, rgba(139, 114, 158, 0.4) 0%, transparent 60%),
+    linear-gradient(135deg, #2B0A13 0%, #5C2331 40%, #7D3848 70%, #21070F 100%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.0s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.0s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.envelope-wrapper.opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#seal-burst-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.envelope-hint {
+  color: var(--gold-light);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  animation: pulseHint 2.2s infinite ease-in-out;
+  text-align: center;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+  background: rgba(92, 35, 49, 0.75);
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+@keyframes pulseHint {
+  0%, 100% { opacity: 0.8; transform: translateY(0) scale(1); }
+  50% { opacity: 1; transform: translateY(-4px) scale(1.03); }
+}
+
+/* Royal Envelope Container Box */
+.envelope-container {
+  position: relative;
+  width: 340px;
+  height: 250px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-envelope);
+  border: 2px solid var(--primary-gold);
+  overflow: hidden;
+  background: #3D121E;
+}
+
+/* Inside Letter Card (Revealed when covers split) */
+.envelope-card-inside {
+  position: absolute;
+  top: 10px; left: 10px;
+  width: 320px; height: 230px;
+  background: linear-gradient(135deg, #FFFDF9 0%, #FDF3F0 60%, #F4E5E0 100%);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1.5px solid rgba(212, 175, 55, 0.7);
+  box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.2);
+  z-index: 1;
+  transform: scale(0.92);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.card-inner-gold {
+  width: 100%; height: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.card-monogram {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--text-gold);
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.card-names {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--rosebud-main);
+  line-height: 1;
+}
+
+.card-tag {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  color: var(--medium-lavender);
+  margin-top: 4px;
+  font-weight: 700;
+}
+
+.card-ceremony {
+  font-size: 0.72rem;
+  color: var(--rosebud-dark);
+  margin-top: 6px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+.card-venue {
+  font-size: 0.65rem;
+  color: var(--text-gold);
+  margin-top: 2px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+
+/* Top Luxury Cover Flap (Displays Unobscured Title Details) */
+.envelope-cover-top {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 58%;
+  background: linear-gradient(180deg, #5C2331 0%, #3D121E 100%);
+  border-bottom: 2px solid var(--primary-gold);
+  z-index: 2;
+  transition: transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 14px 18px 14px;
+  text-align: center;
+}
+
+.envelope-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover-motif {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.cover-monogram {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.cover-couple-title {
+  font-family: var(--font-script);
+  font-size: 2.5rem;
+  color: var(--gold-light);
+  line-height: 1;
+  margin: 2px 0;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.cover-love-tag {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  color: var(--lavender-light);
+  font-weight: 700;
+}
+
+.cover-date-text {
+  font-size: 0.58rem;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  margin-top: 3px;
+  font-family: 'Cinzel', serif;
+}
+
+/* Bottom Envelope Pocket */
+.envelope-cover-bottom {
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 42%;
+  background: linear-gradient(0deg, #5C2331 0%, #3D121E 100%);
+  border-top: 2px solid var(--primary-gold);
+  z-index: 2;
+  transition: transform 1.0s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cover-gold-line {
+  position: absolute;
+  top: 0; left: 10%; width: 80%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+}
+
+/* Wax Seal Positioned Cleanly on Flap Line */
+.seal-ripple-ring {
+  position: absolute;
+  top: 58%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px; height: 76px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-gold);
+  animation: rippleRing 2s infinite ease-out;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes rippleRing {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(1.35); opacity: 0; }
+}
+
+.wax-seal-btn {
+  position: absolute;
+  top: 58%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 74px; height: 74px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  outline: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wax-seal-btn:hover, .wax-seal-btn:active {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.wax-seal-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+}
+
+/* Envelope Opening Split Animations */
+.envelope-wrapper.animating .envelope-cover-top {
+  transform: translateY(-100%);
+}
+
+.envelope-wrapper.animating .envelope-cover-bottom {
+  transform: translateY(100%);
+}
+
+.envelope-wrapper.animating .wax-seal-btn {
+  transform: translate(-50%, -50%) scale(1.3);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.4s ease;
+}
+
+.envelope-wrapper.animating .seal-ripple-ring {
+  display: none;
+}
+
+.envelope-wrapper.animating .envelope-card-inside {
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   2. MAIN WEDDING INVITATION PAGE LAYOUT
+   ========================================================================== */
+
+.invitation-main {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.0s ease, transform 1.0s ease;
+  padding: 24px 16px 40px 16px;
+}
+
+.invitation-main.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Header Frame */
+.hero-header {
+  position: relative;
+  background: linear-gradient(135deg, #FFFDFB 0%, #FDF3F0 50%, #F5EAE7 100%);
+  border-radius: var(--radius-card);
+  padding: 36px 20px 30px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-luxury);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  margin-bottom: 24px;
+}
+
+.gold-border-frame {
+  position: absolute;
+  top: 10px; left: 10px; right: 10px; bottom: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.traditional-motif-icon {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  letter-spacing: 6px;
+}
+
+.monogram-badge {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--text-gold);
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.save-the-date-tag {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--rosebud-main) 0%, var(--medium-lavender) 100%);
+  color: #FFF;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(158, 79, 99, 0.3);
+}
+
+.couple-names {
+  font-family: var(--font-script);
+  font-size: 3.4rem;
+  color: var(--rosebud-main);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(158, 79, 99, 0.1);
+}
+
+.couple-names span {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--primary-gold);
+  font-style: italic;
+}
+
+.hero-tagline {
+  font-family: var(--font-subheading);
+  font-size: 1.3rem;
+  color: var(--medium-lavender);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.love-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200, 138, 117, 0.15);
+  color: var(--rosebud-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(200, 138, 117, 0.4);
+}
+
+/* SECTION CARDS */
+.section-card {
+  background: #FFFDFB;
+  border-radius: var(--radius-card);
+  padding: 28px 20px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-luxury);
+  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  position: relative;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--rosebud-main);
+  text-align: center;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  font-family: var(--font-subheading);
+  font-size: 1.05rem;
+  color: var(--medium-lavender);
+  text-align: center;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+  margin: 12px auto 20px auto;
+}
+
+/* COUNTDOWN GRID */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.countdown-item {
+  background: linear-gradient(135deg, var(--dusty-rose-soft) 0%, var(--lavender-soft) 100%);
+  border-radius: 16px;
+  padding: 14px 6px;
+  text-align: center;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 12px rgba(139, 114, 158, 0.1);
+}
+
+.countdown-num {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--rosebud-main);
+}
+
+.countdown-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* STORY SECTION */
+.story-photo-box {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-gold-card);
+  border: 2px solid var(--primary-gold);
+  background: var(--cream-card);
+}
+
+.story-photo-box img {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  display: block;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.story-quote {
+  font-family: var(--font-subheading);
+  font-size: 1.1rem;
+  color: var(--text-main);
+  line-height: 1.6;
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 22px;
+  padding: 0 8px;
+}
+
+.highlight-years {
+  color: var(--rosebud-main);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* PHOTO GALLERY GRID */
+.photo-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.gallery-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(158, 79, 99, 0.15);
+  border: 1.5px solid var(--primary-gold);
+  background: var(--cream-card);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* LIGHTBOX MODAL FOR GALLERY PREVIEW */
+.image-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.image-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 16px;
+  border: 2px solid var(--primary-gold);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.image-modal-overlay.active .image-modal-content {
+  transform: scale(1);
+}
+
+.image-modal-content img {
+  width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(92, 35, 49, 0.85);
+  color: var(--gold-light);
+  border: 1px solid var(--primary-gold);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* AUSPICIOUS PORUWA FEATURE CARD */
+.poruwa-feature-card {
+  background: linear-gradient(135deg, var(--rosebud-dark) 0%, var(--rosebud-deep) 60%, var(--lavender-dark) 100%);
+  border-radius: var(--radius-card);
+  padding: 28px 20px;
+  margin-bottom: 24px;
+  color: #FFF;
+  text-align: center;
+  box-shadow: 0 16px 36px rgba(61, 18, 30, 0.4);
+  border: 1.5px solid var(--primary-gold);
+}
+
+.poruwa-badge {
+  display: inline-block;
+  background: var(--gold-metallic);
+  color: #3B242A;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.poruwa-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #FFF;
+  margin-bottom: 16px;
+}
+
+.poruwa-time-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.time-card-highlight {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 14px;
+  padding: 12px 8px;
+  backdrop-filter: blur(5px);
+}
+
+.time-card-icon {
+  font-size: 1.2rem;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.time-card-label {
+  font-size: 0.7rem;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.time-card-value {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #FFF;
+  margin-top: 2px;
+}
+
+.poruwa-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+}
+
+.rituals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ritual-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.ritual-icon {
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.ritual-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.ritual-time {
+  font-size: 0.72rem;
+  color: var(--gold-light);
+  margin-top: 2px;
+}
+
+/* EVENT DETAILS */
+.event-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.event-info-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--dusty-rose-soft);
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 138, 117, 0.25);
+}
+
+.event-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rosebud-main), var(--medium-lavender));
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.event-details h4 {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--rosebud-main);
+}
+
+.event-details p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* TIMELINE BOX */
+.timeline-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  padding-left: 10px;
+}
+
+.timeline-step {
+  position: relative;
+  padding-left: 24px;
+  border-left: 2px solid var(--dusty-rose);
+}
+
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: -6px; top: 4px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--dusty-rose);
+}
+
+.timeline-step.special {
+  border-left-color: var(--primary-gold);
+}
+
+.timeline-step.special::before {
+  background: var(--primary-gold);
+  box-shadow: 0 0 10px var(--primary-gold);
+}
+
+.timeline-time {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--rosebud-main);
+}
+
+.timeline-title {
+  font-size: 0.88rem;
+  color: var(--text-main);
+  margin-top: 2px;
+}
+
+/* BUTTONS & FORMS */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, var(--rosebud-main) 0%, var(--medium-lavender) 100%);
+  color: #FFF;
+  border: 1px solid var(--primary-gold);
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(158, 79, 99, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  width: 100%;
+  background: #FFFDFB;
+  color: var(--rosebud-main);
+  border: 1.5px solid var(--dusty-rose);
+  padding: 12px 18px;
+  border-radius: 25px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-secondary:active {
+  background: var(--dusty-rose-soft);
+}
+
+.action-buttons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* GUESTBOOK / WALL OF LOVE */
+.wishes-board {
+  max-height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+.wish-card {
+  background: var(--dusty-rose-soft);
+  border-radius: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(200, 138, 117, 0.2);
+}
+
+.wish-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.wish-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wish-author {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--rosebud-dark);
+}
+
+.wish-time {
+  font-size: 0.7rem;
+  color: var(--medium-lavender);
+}
+
+.btn-delete-wish {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 3px 6px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.btn-delete-wish:hover {
+  color: #d9534f;
+  background: rgba(217, 83, 79, 0.1);
+}
+
+.wish-text {
+  font-size: 0.84rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: #FFF;
+  border: 1px solid var(--dusty-rose);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--text-main);
+  outline: none;
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--rosebud-main);
+  box-shadow: 0 0 8px rgba(158, 79, 99, 0.2);
+}
+
+/* RSVP SECTION & CONTACTS */
+.rsvp-notice-box {
+  background: var(--lavender-soft);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+  border: 1px dashed var(--medium-lavender);
+  margin-bottom: 16px;
+}
+
+.rsvp-deadline {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--rosebud-dark);
+}
+
+.rsvp-appreciation {
+  font-family: var(--font-subheading);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--medium-lavender);
+  margin-top: 4px;
+}
+
+.contact-box-wrapper {
+  background: var(--dusty-rose-soft);
+  border: 1px solid var(--dusty-rose-light);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+
+.contact-chip {
+  text-decoration: none;
+  color: var(--rosebud-dark);
+  font-weight: 600;
+  font-size: 0.88rem;
+  background: #FFF;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--dusty-rose);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* FOOTER */
+.invitation-footer {
+  text-align: center;
+  padding: 20px 10px;
+  font-family: var(--font-subheading);
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.footer-heart {
+  color: var(--rosebud-main);
+}
+
+/* TOAST NOTIFICATION */
+.toast-msg {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--rosebud-deep);
+  color: var(--gold-light);
+  padding: 12px 24px;
+  border-radius: 30px;
+  border: 1.5px solid var(--primary-gold);
+  font-size: 0.85rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  z-index: 99999;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  text-align: center;
+  max-width: 90%;
+}
+
+.toast-msg.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
