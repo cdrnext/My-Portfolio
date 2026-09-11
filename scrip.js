@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const gCalUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
         "&text=" + encodeURIComponent("Manoj & Bhagya's Homecoming Night Party") +
         "&dates=20261114T120000Z/20261114T180000Z" +
-        "&details=" + encodeURIComponent("You are warmly invited to Manoj & Bhagya's Homecoming Night Party! Let's Reunite, Celebrate & Make Beautiful Memories Together!\n\n⏰ Time: 5:30 PM Onwards\n📍 Venue: Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/oMdg14cBEYcx11JH8\n📞 Manoj: 0717900456 | Bhagya: 0706666456\n Invitation Link : https://cdrnext.lk/Manoj-Bhagya-Homecoming") +
+        "&details=" + encodeURIComponent("You are warmly invited to Manoj & Bhagya's Homecoming Night Party! Let's Reunite, Celebrate & Make Beautiful Memories Together!\n\n⏰ Time: 5:30 PM Onwards\n📍 Venue: Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/oMdg14cBEYcx11JH8\n📞 Manoj: 0717900456 | Bhagya: 0706666456") +
         "&location=" + encodeURIComponent("Royal Rest House, Peradeniya | https://share.google/6J5byoG0V9HshOmCD");
       window.open(gCalUrl, '_blank');
     });
@@ -388,7 +388,7 @@ END:VCALENDAR`;
   const shareWhatsappBtn = document.getElementById('shareWhatsappBtn');
   if (shareWhatsappBtn) {
     shareWhatsappBtn.addEventListener('click', () => {
-      const shareText = encodeURIComponent("🎉 You are warmly invited to Manoj & Bhagya's Homecoming Night Party!\n\n✨ Let's Reunite, Celebrate & Make Beautiful Memories Together! ❤️\n⏰ 5:30 PM Onwards\n📅 Saturday, November 14, 2026\n🏛️ Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/v9hv6yD79fJcLnSB6\n📞 Manoj: 0717900456 | Bhagya: 0706666456 Invitation Link: https://cdrnext.lk/Manoj-Bhagya-Homecoming");
+      const shareText = encodeURIComponent("🎉 You are warmly invited to Manoj & Bhagya's Homecoming Night Party!\n\n✨ Let's Reunite, Celebrate & Make Beautiful Memories Together! ❤️\n⏰ 5:30 PM Onwards\n📅 Saturday, November 14, 2026\n🏛️ Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/v9hv6yD79fJcLnSB6\n📞 Manoj: 0717900456 | Bhagya: 0706666456\n Invitation Link: https://cdrnext.lk/Manoj-Bhagya-Homecoming");
       window.open("https://api.whatsapp.com/send?text=" + shareText, '_blank');
     });
   }
