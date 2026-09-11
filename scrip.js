@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // If HTML element not found, create via JS
   if (!bgAudio) {
-    bgAudio = new Audio('assets/Ordinary%20(Violin%20Version).MP3');
+    bgAudio = new Audio('asset/Ordinary.MP3');
     bgAudio.loop = true;
     bgAudio.muted = true;
     bgAudio.volume = 0.85;
