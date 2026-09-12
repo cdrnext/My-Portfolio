@@ -43,9 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Unmute and play on first user gesture
   function unlockAudio() {
-    if (!bgAudio) return;
+    if (!bgAudio || isAudioPlaying) return;
     bgAudio.muted = false;
     bgAudio.volume = 0.85;
     const playPromise = bgAudio.play();
@@ -54,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           setMusicPlaying(true);
           console.log('[Music] Playing successfully!');
+          // Only remove listeners when successful
+          firstGestureEvents.forEach(ev => document.removeEventListener(ev, onFirstGesture));
         })
         .catch(err => {
           console.warn('[Music] Play blocked:', err);
@@ -61,13 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Listen for the very first interaction (touch, click, scroll, key, move)
-  const firstGestureEvents = ['click', 'touchstart', 'pointerdown', 'keydown', 'scroll', 'mousemove'];
+  // Listen for actual user gestures to unlock audio
+  const firstGestureEvents = ['click', 'touchstart', 'pointerdown'];
   function onFirstGesture() {
     unlockAudio();
-    firstGestureEvents.forEach(ev => document.removeEventListener(ev, onFirstGesture));
   }
-  firstGestureEvents.forEach(ev => document.addEventListener(ev, onFirstGesture, { once: true, passive: true }));
+  firstGestureEvents.forEach(ev => document.addEventListener(ev, onFirstGesture, { passive: true }));
 
   // Start falling stars immediately so they appear over the envelope screen
   startFallingStarsCanvas();
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       envelopeWrapper.classList.add('opened');
       invitationMain.classList.add('visible');
       showToast('🎉 Welcome to Manoj & Bhagya\'s Homecoming Night Party!');
-    }, 500);
+    }, 1100);
   }
 
   if (waxSealBtn) {
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     musicToggleBtn.addEventListener('click', toggleMusic);
   }
 
-  // Auto play music after 2 seconds
+  // Auto play music after 1 second
   setTimeout(() => {
     playMusic();
   }, 1000);
