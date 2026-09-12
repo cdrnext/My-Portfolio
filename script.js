@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  // Play music automatically after 3 seconds
+  setTimeout(() => {
+    playMusic();
+  }, 3000);
+
   // Target Date: Nov 12, 2026 10:04:00 AM (Poruwa Ceremony Nekatha)
   const weddingDate = new Date('November 12, 2026 10:04:00').getTime();
 
@@ -111,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Trigger CSS Envelope opening split
     envelopeWrapper.classList.add('animating');
 
-    // Direct Music Playback
+    // Direct Music Playback (in case autoplay was blocked)
     playMusic();
 
     // After animation steps complete, smoothly show main page
@@ -125,10 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (waxSealBtn) {
     waxSealBtn.addEventListener('click', openEnvelope);
-    waxSealBtn.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      openEnvelope();
-    }, { passive: false });
   }
 
   if (replayEnvelopeBtn) {
