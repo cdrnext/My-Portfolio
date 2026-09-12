@@ -30,31 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Audio init notice:', e);
   }
 
-  // Attempt direct audio playback on page load
-  function attemptDirectAudioPlay() {
-    if (!bgAudio || isAudioPlaying) return;
-    bgAudio.play().then(() => {
-      isAudioPlaying = true;
-      if (musicToggleBtn) {
-        musicToggleBtn.classList.add('playing');
-        musicToggleBtn.setAttribute('title', 'Pause Music');
-      }
-    }).catch(err => {
-      // Browser autoplay policy might block audio until user click
-      console.log('Direct autoplay waiting for interaction:', err);
-    });
-  }
-
-  attemptDirectAudioPlay();
-
-  // Play audio directly on first user interaction anywhere on screen
-  const enableAudioOnInteraction = () => {
-    attemptDirectAudioPlay();
-    document.removeEventListener('click', enableAudioOnInteraction);
-    document.removeEventListener('touchstart', enableAudioOnInteraction);
-  };
-  document.addEventListener('click', enableAudioOnInteraction, { once: true });
-  document.addEventListener('touchstart', enableAudioOnInteraction, { once: true });
 
   // Target Date: Nov 12, 2026 10:04:00 AM (Poruwa Ceremony Nekatha)
   const weddingDate = new Date('November 12, 2026 10:04:00').getTime();
@@ -369,7 +344,7 @@ END:VCALENDAR`;
   const shareWhatsappBtn = document.getElementById('shareWhatsappBtn');
   if (shareWhatsappBtn) {
     shareWhatsappBtn.addEventListener('click', () => {
-      const shareText = encodeURIComponent("💌 You are cordially invited to celebrate the Traditional Kandyan Wedding of Manoj & Bhagya!\n\n✨ 14 Years of Love… Forever to Go ❤️\n⏰ Event Hours: 9:30 AM - 4:30 PM\n⏰ Poruwa Ceremony (Nekatha): 10:04 AM\n📅 Date: Thursday, November 12, 2026\n📍 Location: The Biso Hotel Kanthale (https://share.google/Jmm8KmMtpkvWBadur)\n📝 Confirm RSVP Google Form: https://forms.gle/qDCGRiJ9GQJq5pxe9\n💌Invitation Link : https://cdrnext.lk/Manoj-Bhagya-Wedding\n📞 Contact: Manoj: 0717900456 / Bhagya: 0706666456");
+      const shareText = encodeURIComponent("💌 You are cordially invited to celebrate the Traditional Kandyan Wedding of Manoj & Bhagya!\n\n✨ 14 Years of Love… Forever to Go ❤️\n⏰ Event Hours: 9:30 AM - 4:30 PM\n⏰ Poruwa Ceremony (Nekatha): 10:04 AM\n📅 Date: Thursday, November 12, 2026\n📍 Location: The Biso Hotel Kanthale (https://share.google/Jmm8KmMtpkvWBadur)\n📝 Confirm RSVP Google Form: https://forms.gle/p1BcPYw2XSjJ6oFF6\n📞 Contact: Manoj (0717900456) / Bhagya (0706666456)");
       window.open("https://api.whatsapp.com/send?text=" + shareText, '_blank');
     });
   }
