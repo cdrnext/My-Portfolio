@@ -345,7 +345,7 @@ END:VCALENDAR`;
   const shareWhatsappBtn = document.getElementById('shareWhatsappBtn');
   if (shareWhatsappBtn) {
     shareWhatsappBtn.addEventListener('click', () => {
-      const shareText = encodeURIComponent("💌 You are cordially invited to celebrate the Traditional Kandyan Wedding of Manoj & Bhagya!\n\n✨ 14 Years of Love… Forever to Go ❤️\n⏰ Event Hours: 9:30 AM - 4:30 PM\n⏰ Poruwa Ceremony (Nekatha): 10:04 AM\n📅 Date: Thursday, November 12, 2026\n📍 Location: The Biso Hotel Kanthale (https://share.google/Jmm8KmMtpkvWBadur)\n📝 Confirm RSVP Google Form: https://forms.gle/p1BcPYw2XSjJ6oFF6\n📞 Contact: Manoj (0717900456) / Bhagya (0706666456)");
+      const shareText = encodeURIComponent("🎉 You are warmly invited to celebrate the wedding of *Manoj & Bhagya!* ❤️!\n\n✨ Your presence will make our special day truly blessed! ❤️\n⏰ 9:30 AM Onwards\n📅 Saturday, November 12, 2026\n🏛️ The Biso Hotel, Kanthale\n🗺️ Map: https://share.google/MgqFqKugslKJScXqP\n📝 Invitation: https://cdrnext.lk/Manoj-Bhagya-Wedding\n📞 Manoj: 0717900456 | Bhagya: 0706666456");
       window.open("https://api.whatsapp.com/send?text=" + shareText, '_blank');
     });
   }
