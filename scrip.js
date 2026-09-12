@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // If HTML element not found, create via JS
   if (!bgAudio) {
-    bgAudio = new Audio('asset/Ordinary.MP3');
+    bgAudio = new Audio('assets/Ordinary%20(Violin%20Version).MP3');
     bgAudio.loop = true;
     bgAudio.muted = true;
     bgAudio.volume = 0.85;
@@ -230,6 +230,11 @@ document.addEventListener('DOMContentLoaded', () => {
     musicToggleBtn.addEventListener('click', toggleMusic);
   }
 
+  // Auto play music after 2 seconds
+  setTimeout(() => {
+    playMusic();
+  }, 2000);
+
   /* ==========================================================================
      4. Real-Time Countdown Timer (to Homecoming Night Party)
      ========================================================================== */
@@ -353,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const gCalUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE" +
         "&text=" + encodeURIComponent("Manoj & Bhagya's Homecoming Night Party") +
         "&dates=20261114T120000Z/20261114T180000Z" +
-        "&details=" + encodeURIComponent("You are warmly invited to Manoj & Bhagya's Homecoming Night Party! Let's Reunite, Celebrate & Make Beautiful Memories Together!\n\n⏰ Time: 5:30 PM Onwards\n📍 Venue: Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/oMdg14cBEYcx11JH8\n📞 Manoj: 0717900456 | Bhagya: 0706666456") +
+        "&details=" + encodeURIComponent("You are warmly invited to Manoj & Bhagya's Homecoming Night Party! Let's Reunite, Celebrate & Make Beautiful Memories Together!\n\n⏰ Time: 5:30 PM Onwards\n📍 Venue: Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/v9hv6yD79fJcLnSB6\n📞 Manoj: 0717900456 | Bhagya: 0706666456") +
         "&location=" + encodeURIComponent("Royal Rest House, Peradeniya | https://share.google/6J5byoG0V9HshOmCD");
       window.open(gCalUrl, '_blank');
     });
@@ -388,7 +393,7 @@ END:VCALENDAR`;
   const shareWhatsappBtn = document.getElementById('shareWhatsappBtn');
   if (shareWhatsappBtn) {
     shareWhatsappBtn.addEventListener('click', () => {
-      const shareText = encodeURIComponent("🎉 You are warmly invited to Manoj & Bhagya's Homecoming Night Party!\n\n✨ Let's Reunite, Celebrate & Make Beautiful Memories Together! ❤️\n⏰ 5:30 PM Onwards\n📅 Saturday, November 14, 2026\n🏛️ Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/v9hv6yD79fJcLnSB6\n💌 Invitation Link: https://cdrnext.lk/Manoj-Bhagya-Homecoming\n📞 Manoj: 0717900456 | Bhagya: 0706666456 ");
+      const shareText = encodeURIComponent("🎉 You are warmly invited to Manoj & Bhagya's Homecoming Night Party!\n\n✨ Let's Reunite, Celebrate & Make Beautiful Memories Together! ❤️\n⏰ 5:30 PM Onwards\n📅 Saturday, November 14, 2026\n🏛️ Royal Rest House, Peradeniya\n🗺️ Map: https://share.google/6J5byoG0V9HshOmCD\n📝 RSVP: https://forms.gle/v9hv6yD79fJcLnSB6\n📞 Manoj: 0717900456 | Bhagya: 0706666456");
       window.open("https://api.whatsapp.com/send?text=" + shareText, '_blank');
     });
   }
