@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Play music automatically after 3 seconds
   setTimeout(() => {
     playMusic();
-  }, 2000);
+  }, 1000);
 
   // Target Date: Nov 12, 2026 10:04:00 AM (Poruwa Ceremony Nekatha)
   const weddingDate = new Date('November 12, 2026 10:04:00').getTime();
