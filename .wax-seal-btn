@@ -386,7 +386,7 @@ html, body {
 
 .wax-seal-btn {
   position: absolute;
-  top: 65%; left: 50%;
+  top: 58%; left: 50%;
   transform: translate(-50%, -50%);
   width: 74px; height: 74px;
   border-radius: 50%;
