@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       envelopeWrapper.classList.add('opened');
       invitationMain.classList.add('visible');
       showToast('🎉 Welcome to Manoj & Bhagya\'s Homecoming Night Party!');
-    }, 1100);
+    }, 500);
   }
 
   if (waxSealBtn) {
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Auto play music after 2 seconds
   setTimeout(() => {
     playMusic();
-  }, 2000);
+  }, 1000);
 
   /* ==========================================================================
      4. Real-Time Countdown Timer (to Homecoming Night Party)
