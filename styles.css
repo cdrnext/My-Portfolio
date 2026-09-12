@@ -292,7 +292,7 @@ html, body {
 /* Top Luxury Cover Flap (Displays Unobscured Title Details) */
 .envelope-cover-top {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 58%;
+  top: 0; left: 0; width: 100%; height: 66%;
   background: linear-gradient(180deg, #5C2331 0%, #3D121E 100%);
   border-bottom: 2px solid var(--primary-gold);
   z-index: 2;
@@ -353,7 +353,7 @@ html, body {
 /* Bottom Envelope Pocket */
 .envelope-cover-bottom {
   position: absolute;
-  bottom: 0; left: 0; width: 100%; height: 42%;
+  bottom: 0; left: 0; width: 100%; height: 34%;
   background: linear-gradient(0deg, #5C2331 0%, #3D121E 100%);
   border-top: 2px solid var(--primary-gold);
   z-index: 2;
@@ -369,7 +369,7 @@ html, body {
 /* Wax Seal Positioned Cleanly on Flap Line */
 .seal-ripple-ring {
   position: absolute;
-  top: 58%; left: 50%;
+  top: calc(66% + 10px); left: 50%;
   transform: translate(-50%, -50%);
   width: 76px; height: 76px;
   border-radius: 50%;
@@ -386,7 +386,7 @@ html, body {
 
 .wax-seal-btn {
   position: absolute;
-  top: 58%; left: 50%;
+  top: calc(66% + 10px); left: 50%;
   transform: translate(-50%, -50%);
   width: 74px; height: 74px;
   border-radius: 50%;
