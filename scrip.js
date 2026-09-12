@@ -45,15 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function unlockAudio() {
     if (!bgAudio || isAudioPlaying) return;
+    
     bgAudio.muted = false;
     bgAudio.volume = 0.85;
+    
+    // If it's already trying to play or playing, just update UI
+    if (!bgAudio.paused) {
+        setMusicPlaying(true);
+        firstGestureEvents.forEach(ev => document.removeEventListener(ev, onFirstGesture));
+        return;
+    }
+
     const playPromise = bgAudio.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           setMusicPlaying(true);
           console.log('[Music] Playing successfully!');
-          // Only remove listeners when successful
           firstGestureEvents.forEach(ev => document.removeEventListener(ev, onFirstGesture));
         })
         .catch(err => {
@@ -204,10 +212,12 @@ document.addEventListener('DOMContentLoaded', () => {
      3. Background Music Player Control
      ========================================================================== */
   function playMusic() {
-    if (!bgAudio) return;
+    if (!bgAudio || isAudioPlaying) return;
     bgAudio.muted = false;
     bgAudio.volume = 0.85;
-    bgAudio.play().then(() => setMusicPlaying(true)).catch(() => {});
+    if (bgAudio.paused) {
+        bgAudio.play().then(() => setMusicPlaying(true)).catch(() => {});
+    }
   }
 
   function toggleMusic() {
@@ -230,10 +240,7 @@ document.addEventListener('DOMContentLoaded', () => {
     musicToggleBtn.addEventListener('click', toggleMusic);
   }
 
-  // Auto play music after 1 second
-  setTimeout(() => {
-    playMusic();
-  }, 1000);
+
 
   /* ==========================================================================
      4. Real-Time Countdown Timer (to Homecoming Night Party)
