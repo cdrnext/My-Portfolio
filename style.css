@@ -383,7 +383,7 @@ html::before {
 /* Wax Seal */
 .seal-ripple-ring {
   position: absolute;
-  top: calc(65% + 5px); left: 50%;
+  top: calc(65% + 15px); left: 50%;
   transform: translate(-50%, -50%);
   width: 76px; height: 76px;
   border-radius: 50%;
@@ -400,7 +400,7 @@ html::before {
 
 .wax-seal-btn {
   position: absolute;
-  top: calc(65% + 5px); left: 50%;
+  top: calc(65% + 15px); left: 50%;
   transform: translate(-50%, -50%);
   width: 74px; height: 74px;
   border-radius: 50%;
