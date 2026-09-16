@@ -376,14 +376,14 @@ html::before {
 
 .cover-gold-line {
   position: absolute;
-  top: 0; left: 10%; width: 80%; height: 1px;
+  top: 0; left: 10%; width: 80%; height: 6px;
   background: linear-gradient(90deg, transparent, var(--champagne-gold), transparent);
 }
 
 /* Wax Seal */
 .seal-ripple-ring {
   position: absolute;
-  top: calc(65% + 25px); left: 50%;
+  top: calc(65% + 15px); left: 50%;
   transform: translate(-50%, -50%);
   width: 76px; height: 76px;
   border-radius: 50%;
