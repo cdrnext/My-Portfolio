@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Manoj &amp; Bhagya – Homecoming Lunch | At the Groom’s Home</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="With great happiness, we invite you to join us for a special lunch as we continue celebrating our new journey together. Sunday, November 15, 2026 from 11:30 AM at the Groom’s Home.">
+  <meta property="og:title" content="Manoj &amp; Bhagya – Homecoming Lunch Invitation">
+  <meta property="og:description" content="With great happiness, we invite you to join us for a special lunch as we continue celebrating our new journey together. Sunday, November 15, 2026 from 11:30 AM at the Groom’s Home. Kindly RSVP via Google Form.">
+  <meta property="og:image" content="assets/homecoming_first.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Style Sheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Background Music (muted autoplay – unmutes on first interaction) -->
+  <audio id="bgAudioEl" loop muted autoplay preload="auto">
+    <source src="assets/Ordinary%20(Violin%20Version).MP3" type="audio/mpeg">
+  </audio>
+
+  <!-- Floating Particle Canvas (Stars & Confetti) -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Floating Controls (Music Toggle) -->
+  <div class="floating-controls">
+    <button id="musicToggleBtn" class="control-btn" title="Toggle Party Music" aria-label="Toggle Music">
+      <i class="fas fa-music"></i>
+    </button>
+  </div>
+
+  <div class="app-viewport">
+    
+    <!-- ==========================================================================
+         1. LUXURY HOMECOMING ENVELOPE UNBOXING EXPERIENCE
+         ========================================================================== -->
+    <div id="envelopeWrapper" class="envelope-wrapper">
+      <canvas id="seal-burst-canvas"></canvas>
+
+      <div class="envelope-hint">
+        <i class="fas fa-star"></i> TAP SEAL TO OPEN INVITATION <i class="fas fa-star"></i>
+      </div>
+
+      <!-- Royal Envelope Container -->
+      <div class="envelope-container">
+        <!-- Inside Card: New Dancing Couple Image -->
+        <div class="envelope-card-inside" style="padding: 6px;">
+          <img src="assets/homecoming_first.jpg" alt="Manoj & Bhagya – Homecoming Lunch" style="width:100%; height:100%; object-fit:cover; border-radius:10px; display:block;">
+        </div>
+
+        <!-- Top Envelope Flap -->
+        <div class="envelope-cover-top">
+          <div class="envelope-header-text">
+            <div class="cover-motif">✨ 🎉 ✨</div>
+            <div class="cover-monogram">M ♥ B</div>
+            <h3 class="cover-couple-title">Manoj &amp; Bhagya</h3>
+            <div class="cover-love-tag">❤️ HOME COMING LUNCH ❤️</div>
+            <div class="cover-date-text">SUNDAY, NOVEMBER 15, 2026 • AT THE GROOM’S HOME • 11:30 AM</div>
+          </div>
+        </div>
+
+        <!-- Bottom Envelope Pocket -->
+        <div class="envelope-cover-bottom">
+          <div class="cover-gold-line"></div>
+        </div>
+
+        <!-- Glowing Wax Seal Button -->
+        <div class="seal-ripple-ring"></div>
+        <button id="waxSealBtn" class="wax-seal-btn" title="Tap to Open Invitation" aria-label="Tap Seal to Open Invitation">
+          <img src="assets/wax_seal.png" alt="Gold Wax Seal" class="wax-seal-img">
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         2. MAIN HOMECOMING INVITATION CONTENT
+         ========================================================================== -->
+    <main id="invitationMain" class="invitation-main">
+      
+      <!-- HERO HEADER -->
+      <header class="hero-header">
+        <div class="gold-border-frame"></div>
+        <div class="traditional-motif-icon">✨ 🎉 ✨</div>
+        <div class="monogram-badge">M ♥ B</div>
+        <div class="save-the-date-tag">YOU ARE WARMLY INVITED</div>
+        <h1 class="event-title-script">Homecoming</h1>
+        <h2 class="event-subtitle-script">Lunch Party</h2>
+
+        <!-- FIRST Image: Dancing Couple -->
+        <div class="hero-banner-box">
+          <img src="assets/homecoming_first.jpg" alt="Manoj &amp; Bhagya – Homecoming Lunch">
+        </div>
+
+        <h1 class="couple-names">
+          Manoj <span>&amp;</span> Bhagya
+        </h1>
+        <div class="love-badge">
+          With great happiness, we invite you to join us for a special lunch as we continue celebrating our new journey together. 🥰
+        </div>
+      </header>
+
+      <!-- HOMECOMING LUNCH HIGHLIGHT CARD -->
+      <section class="poruwa-feature-card">
+        <h3 class="poruwa-card-title">
+          ❤️ HOME COMING LUNCH ❤️
+        </h3>
+        
+        <div class="poruwa-time-grid" style="grid-template-columns: 1fr;">
+          <div class="time-card-highlight">
+            <div class="time-card-icon"><i class="fas fa-utensils"></i></div>
+            <div class="time-card-label">Lunch Party Begins</div>
+            <div class="time-card-value">11:30 AM </div>
+          </div>
+        </div>
+
+    
+      </section>
+
+      <!-- 💕 HOMECOMING INVITATION DESCRIPTION -->
+      <section class="section-card love-story-section">
+        <div class="section-title">💕 Our Love Story</div>
+        <div class="section-subtitle">💍 14 Years of Love • One Beautiful Forever</div>
+        <div class="gold-divider"></div>
+
+        <div class="love-story-body">
+
+          
+          <p class="love-story-para">
+            What began as a young love story <strong>14 years ago</strong> has grown into a beautiful journey filled with countless memories, dreams, challenges, laughter, and love.
+          </p>
+
+          <div class="love-story-divider">
+            <span>✨</span>
+          </div>
+
+          <p class="love-story-para">
+            Now, after <strong>14 wonderful years of love</strong>, <strong>Manoj &amp; Bhagya</strong> are beginning a new chapter together.
+          </p>
+
+          <div class="love-story-divider">
+            <span>🌹</span>
+          </div>
+
+        
+
+          <div class="love-story-signature">
+            <div class="love-story-names">With love, Manoj ❤️ Bhagya</div>
+            <div class="love-story-tagline">14 Years of Love. One Lifetime to Go.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- EVENT DETAILS & LOCATION SECTION -->
+      <section class="section-card">
+        <div class="section-title">Party Details</div>
+        <div class="section-subtitle">Date, Time &amp; Location</div>
+        <div class="gold-divider"></div>
+
+        <div class="event-info-list">
+          <div class="event-info-item">
+            <div class="event-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="event-details">
+              <h4>Event Date</h4>
+              <p>📅 Sunday, 15th November 2026</p>
+            </div>
+          </div>
+
+          <div class="event-info-item">
+            <div class="event-icon"><i class="fas fa-clock"></i></div>
+            <div class="event-details">
+              <h4>Event Time</h4>
+              <p>🍽️ Lunch Party Start 11:30 AM</p>
+            </div>
+          </div>
+
+          <div class="event-info-item">
+            <div class="event-icon"><i class="fas fa-home"></i></div>
+            <div class="event-details">
+              <h4>Venue</h4>
+              <p>🏡 At the Groom’s Home</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map + RSVP buttons -->
+        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+          <a href="https://maps.app.goo.gl/7BBk5TmLEjDS8Koe8" target="_blank" rel="noopener" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+            <i class="fas fa-map-marked-alt"></i> Open Google Map Location
+          </a>
+
+        </div>
+      </section>
+
+      <!-- COUNTDOWN TIMER SECTION -->
+      <section class="section-card">
+        <div class="section-title">Counting Down</div>
+        <div class="section-subtitle">To Our Homecoming Lunch</div>
+        <div class="gold-divider"></div>
+
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <div id="days" class="countdown-num">00</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item">
+            <div id="hours" class="countdown-num">00</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item">
+            <div id="minutes" class="countdown-num">00</div>
+            <div class="countdown-label">Mins</div>
+          </div>
+          <div class="countdown-item">
+            <div id="seconds" class="countdown-num">00</div>
+            <div class="countdown-label">Secs</div>
+          </div>
+        </div>
+
+        <div class="countdown-date-badge">
+          <i class="fas fa-calendar-star"></i>
+          <span>Sunday, November 15, 2026</span>
+          <span class="countdown-date-dot">•</span>
+          <span>11:30 AM Start</span>
+          <span class="countdown-date-dot">•</span>
+          <span>At the Groom’s Home</span>
+        </div>
+      </section>
+
+      <!-- OUR CELEBRATION & PHOTO SECTION -->
+      <section class="section-card">
+        <div class="section-title">Our Celebration</div>
+        <div class="section-subtitle">A Special Lunch Together</div>
+        <div class="gold-divider"></div>
+
+
+        <!-- Banner Image -->
+        <div class="story-photo-box">
+          <img src="assets/homecoming_banner.png" alt="Manoj &amp; Bhagya – Celebrate Our Homecoming Lunch">
+        </div>
+
+        <div class="story-quote" style="text-align: center;">
+        
+          <p style="margin-top: 12px; font-weight: 600; color: var(--crimson-main);">We would be honoured to have you with us!<br>With love, Manoj &amp; Bhagya</p>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="photo-gallery-grid">
+          <div class="gallery-item"><img src="assets/1.JPG" alt="Manoj &amp; Bhagya Moment 1" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/2.JPG" alt="Manoj &amp; Bhagya Moment 2" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/3.JPG" alt="Manoj &amp; Bhagya Moment 3" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/4.JPG" alt="Manoj &amp; Bhagya Moment 4" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/5.JPG" alt="Manoj &amp; Bhagya Moment 5" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/6.JPG" alt="Manoj &amp; Bhagya Moment 6" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/7.JPG" alt="Manoj &amp; Bhagya Moment 7" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/8.JPG" alt="Manoj &amp; Bhagya Moment 8" loading="lazy"></div>
+          <div class="gallery-item"><img src="assets/9.JPG" alt="Manoj &amp; Bhagya Moment 9" loading="lazy"></div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE WALL OF LOVE / GUESTBOOK SECTION -->
+      <section class="section-card">
+        <div class="section-title">Wall of Love</div>
+        <div class="section-subtitle">Leave Your Wishes &amp; Blessings</div>
+        <div class="gold-divider"></div>
+
+        <div id="wishesBoard" class="wishes-board">
+          <!-- Dynamic user wishes loaded here -->
+        </div>
+
+        <form id="wishForm" style="margin-top: 15px;">
+          <div class="form-group">
+            <input type="text" id="wishName" class="form-input" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <textarea id="wishMessage" class="form-textarea" rows="2" placeholder="Write your warm wishes for Manoj &amp; Bhagya's Homecoming Lunch..." required></textarea>
+          </div>
+          <button type="submit" class="btn-secondary" style="width: 100%; border-color: var(--primary-gold); background: #FFF;">
+            <i class="fas fa-heart" style="color: var(--crimson-main);"></i> Post Blessing on Wall
+          </button>
+        </form>
+      </section>
+
+      <!-- RSVP CONTACT & GOOGLE FORM SECTION -->
+      <section class="section-card" id="rsvp">
+        <div class="section-title">RSVP &amp; Participation</div>
+        <div class="section-subtitle">Kindly Confirm Your Presence</div>
+        <div class="gold-divider"></div>
+
+        <!-- RSVP Notice & Green RSVP Button -->
+        <div class="rsvp-notice-box">
+          <div class="rsvp-appreciation">
+            "Your presence and blessings will make this celebration even more special to us." ❤️
+          </div>
+        </div>
+
+        <!-- Primary Google Form RSVP Link - Green Button -->
+        <div style="text-align: center; margin: 20px 0;">
+          <a href="https://forms.gle/gp4Sy8fvSaZmYNTp6" target="_blank" rel="noopener" class="btn-rsvp-green">
+            <i class="fas fa-check-circle" style="font-size: 1.3rem;"></i> YES, I AM COMING
+          </a>
+        </div>
+
+        <!-- Direct RSVP Contacts -->
+        <div class="contact-box-wrapper">
+          <h4 style="font-family: var(--font-heading); font-size: 0.85rem; color: var(--crimson-dark); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Direct Contact Numbers</h4>
+          
+          <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
+            <a href="tel:0717900456" class="contact-chip">
+              <i class="fas fa-phone-alt"></i> Manoj: 071 790 0456
+            </a>
+            <a href="tel:0706666456" class="contact-chip">
+              <i class="fas fa-phone-alt"></i> Bhagya: 070 666 6456
+            </a>
+          </div>
+        </div>
+
+        <div class="action-buttons-group" style="margin-top: 24px;">
+          <button id="addToCalendarBtn" class="btn-secondary">
+            <i class="far fa-calendar-plus"></i> Add to Google Calendar
+          </button>
+
+          <button id="downloadIcalBtn" class="btn-secondary">
+            <i class="fas fa-file-export"></i> Download Apple Calendar (.ics)
+          </button>
+          
+          <button id="shareWhatsappBtn" class="btn-secondary">
+            <i class="fab fa-whatsapp"></i> Share Invitation on WhatsApp
+          </button>
+
+          <button id="replayEnvelopeBtn" class="btn-secondary">
+            <i class="fas fa-envelope-open-text"></i> Replay Envelope Opening
+          </button>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="invitation-footer">
+        <p>Homecoming Lunch • At the Groom’s Home • 11:30 AM</p>
+        <p style="margin-top: 6px;">With Love <span class="footer-heart">♥</span> Manoj &amp; Bhagya</p>
+        <p style="margin-top: 6px; font-size: 0.8rem; opacity: 0.7;">Sunday, November 15, 2026</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- LIGHTBOX IMAGE MODAL OVERLAY -->
+  <div id="imageModalOverlay" class="image-modal-overlay">
+    <div class="image-modal-content">
+      <button id="imageModalClose" class="image-modal-close" aria-label="Close Preview">&times;</button>
+      <img id="imageModalImg" src="" alt="Enlarged Photo Preview">
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION BOX -->
+  <div id="toastMsg" class="toast-msg"></div>
+
+  <!-- JavaScript Engine -->
+  <script src="script.js"></script>
+</body>
+</html>
